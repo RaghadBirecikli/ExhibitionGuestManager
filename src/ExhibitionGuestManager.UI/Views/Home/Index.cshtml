@@ -1,0 +1,10 @@
+@inject IStringLocalizer<SharedResource> L
+
+@{
+    ViewData["Title"] = L["HomeTitle"];
+}
+
+<section class="content-panel text-center">
+    <h1 class="h4 fw-semibold mb-2">@L["HomeTitle"]</h1>
+    <p class="text-secondary mb-0">@L["HomeSubtitle"]</p>
+</section>

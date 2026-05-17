@@ -1,0 +1,45 @@
+@model CustomerDetailsViewModel
+@inject IStringLocalizer<SharedResource> L
+
+@{
+    ViewData["Title"] = L["DeleteCustomer"];
+    var statusText = Model.Status == CustomerStatus.Active ? L["Active"] : L["Inactive"];
+}
+
+<div class="mb-4">
+    <h1 class="h3 fw-semibold mb-1">@L["DeleteCustomer"]</h1>
+    <p class="text-secondary mb-0">@L["DeleteCustomerSubtitle"]</p>
+</div>
+
+<section class="content-panel">
+    <div class="alert alert-warning app-alert delete-alert" role="alert">
+        @L["DeleteWarning"]
+    </div>
+
+    <div class="row g-4 mb-4">
+        <div class="col-md-6">
+            <div class="detail-label">@L["FullName"]</div>
+            <div class="detail-value">@Model.FullName</div>
+        </div>
+        <div class="col-md-6">
+            <div class="detail-label">@L["MobileNumber"]</div>
+            <div class="detail-value">@Model.MobileNumber</div>
+        </div>
+        <div class="col-md-6">
+            <div class="detail-label">@L["Company"]</div>
+            <div class="detail-value">@(Model.CompanyName ?? "-")</div>
+        </div>
+        <div class="col-md-6">
+            <div class="detail-label">@L["Status"]</div>
+            <span class="badge rounded-pill detail-badge @(Model.Status == CustomerStatus.Active ? "text-bg-success" : "text-bg-secondary")">
+                @statusText
+            </span>
+        </div>
+    </div>
+
+    <form asp-action="Delete" asp-route-id="@Model.Id" method="post" class="d-flex flex-wrap gap-2">
+        @Html.AntiForgeryToken()
+        <button type="submit" class="btn btn-danger">@L["ConfirmDelete"]</button>
+        <a asp-action="Index" class="btn btn-outline-secondary">@L["Cancel"]</a>
+    </form>
+</section>

@@ -1,0 +1,11 @@
+@inject IStringLocalizer<SharedResource> L
+
+@{
+    ViewData["Title"] = L["AccessDenied"];
+}
+
+<section class="content-panel text-center">
+    <h1 class="h3 fw-semibold">@L["AccessDenied"]</h1>
+    <p class="text-secondary mb-4">@L["AccessDeniedMessage"]</p>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">@L["Back"]</a>
+</section>

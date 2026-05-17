@@ -1,0 +1,12 @@
+@inject IStringLocalizer<SharedResource> L
+
+@{
+    ViewData["Title"] = L["Error"];
+}
+
+<section class="content-panel text-center">
+    <div class="error-mark mx-auto mb-3">!</div>
+    <h1 class="h3 fw-semibold">@L["ErrorTitle"]</h1>
+    <p class="text-secondary mb-4">@L["ErrorMessage"]</p>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">@L["ReturnHome"]</a>
+</section>

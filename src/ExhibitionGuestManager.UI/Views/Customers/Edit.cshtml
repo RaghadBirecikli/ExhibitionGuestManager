@@ -1,0 +1,81 @@
+@model CustomerEditViewModel
+@inject IStringLocalizer<SharedResource> L
+
+@{
+    ViewData["Title"] = L["EditCustomer"];
+}
+
+<div class="d-flex align-items-center justify-content-between gap-3 mb-4">
+    <div>
+        <h1 class="h3 fw-semibold mb-1">@L["EditCustomer"]</h1>
+        <p class="text-secondary mb-0">@L["EditCustomerSubtitle"]</p>
+    </div>
+</div>
+
+<section class="content-panel">
+    <form asp-action="Edit" method="post" class="row g-4">
+        @Html.AntiForgeryToken()
+        <input asp-for="Id" type="hidden" />
+        <div asp-validation-summary="ModelOnly" class="alert alert-danger app-alert" role="alert"></div>
+
+        <div class="col-md-6">
+            <label asp-for="FullName" class="form-label"></label>
+            <input asp-for="FullName" class="form-control" />
+            <span asp-validation-for="FullName" class="text-danger small"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="MobileNumber" class="form-label"></label>
+            <input asp-for="MobileNumber" class="form-control" />
+            <span asp-validation-for="MobileNumber" class="text-danger small"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="City" class="form-label"></label>
+            <input asp-for="City" class="form-control" />
+            <span asp-validation-for="City" class="text-danger small"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="CompanyName" class="form-label"></label>
+            <input asp-for="CompanyName" class="form-control" />
+            <span asp-validation-for="CompanyName" class="text-danger small"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="Department" class="form-label"></label>
+            <input asp-for="Department" class="form-control" />
+            <span asp-validation-for="Department" class="text-danger small"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="Status" class="form-label"></label>
+            <select asp-for="Status" class="form-select">
+                <option value="@CustomerStatus.Active">@L["Active"]</option>
+                <option value="@CustomerStatus.Inactive">@L["Inactive"]</option>
+            </select>
+            <span asp-validation-for="Status" class="text-danger small"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="GeneralNotes" class="form-label"></label>
+            <textarea asp-for="GeneralNotes" class="form-control" rows="5"></textarea>
+            <span asp-validation-for="GeneralNotes" class="text-danger small"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="InternalNotes" class="form-label"></label>
+            <textarea asp-for="InternalNotes" class="form-control" rows="5"></textarea>
+            <span asp-validation-for="InternalNotes" class="text-danger small"></span>
+        </div>
+
+        <div class="col-12 d-flex flex-wrap gap-2">
+            <button type="submit" class="btn btn-primary">@L["SaveChanges"]</button>
+            <a asp-action="Index" class="btn btn-outline-secondary">@L["BackToList"]</a>
+        </div>
+    </form>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

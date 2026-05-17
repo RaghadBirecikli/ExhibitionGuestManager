@@ -1,0 +1,209 @@
+@model CustomerIndexViewModel
+@inject IStringLocalizer<SharedResource> L
+
+@{
+    ViewData["Title"] = L["Customers"];
+    var filter = Model.Filter;
+    var totalPages = Math.Max(1, Model.TotalPages);
+    var startPage = Math.Max(1, filter.PageNumber - 2);
+    var endPage = Math.Min(totalPages, filter.PageNumber + 2);
+}
+
+@functions {
+    private string StatusText(CustomerStatus status)
+    {
+        return status == CustomerStatus.Active ? L["Active"] : L["Inactive"];
+    }
+}
+
+<div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-4">
+    <div>
+        <h1 class="h3 fw-semibold mb-1">@L["Customers"]</h1>
+        <p class="text-secondary mb-0">@L["CustomersSubtitle"]</p>
+    </div>
+    <a asp-action="Create" class="btn btn-primary page-action-btn">@L["AddCustomer"]</a>
+</div>
+
+<section class="content-panel filter-panel mb-4">
+    <form asp-action="Index" method="get" class="row g-3 align-items-end">
+        <input type="hidden" name="PageNumber" value="1" />
+
+        <div class="col-lg-4 col-md-6">
+            <label asp-for="Filter.SearchTerm" class="form-label">@L["SearchTerm"]</label>
+            <input asp-for="Filter.SearchTerm" name="SearchTerm" class="form-control" placeholder="@L["SearchPlaceholder"]" />
+        </div>
+
+        <div class="col-lg-2 col-md-6">
+            <label asp-for="Filter.City" class="form-label">@L["City"]</label>
+            <input asp-for="Filter.City" name="City" class="form-control" />
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <label asp-for="Filter.CompanyName" class="form-label">@L["Company"]</label>
+            <input asp-for="Filter.CompanyName" name="CompanyName" class="form-control" />
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <label asp-for="Filter.Department" class="form-label">@L["Department"]</label>
+            <input asp-for="Filter.Department" name="Department" class="form-control" />
+        </div>
+
+        <div class="col-lg-2 col-md-6">
+            <label asp-for="Filter.Status" class="form-label">@L["Status"]</label>
+            <select asp-for="Filter.Status" name="Status" class="form-select">
+                <option value="">@L["All"]</option>
+                <option value="@CustomerStatus.Active">@L["Active"]</option>
+                <option value="@CustomerStatus.Inactive">@L["Inactive"]</option>
+            </select>
+        </div>
+
+        <div class="col-lg-2 col-md-6">
+            <label asp-for="Filter.FromDate" class="form-label">@L["FromDate"]</label>
+            <input asp-for="Filter.FromDate" name="FromDate" type="date" class="form-control" />
+        </div>
+
+        <div class="col-lg-2 col-md-6">
+            <label asp-for="Filter.ToDate" class="form-label">@L["ToDate"]</label>
+            <input asp-for="Filter.ToDate" name="ToDate" type="date" class="form-control" />
+        </div>
+
+        <div class="col-lg-2 col-md-6">
+            <label asp-for="Filter.PageSize" class="form-label">@L["PageSize"]</label>
+            <select asp-for="Filter.PageSize" name="PageSize" class="form-select">
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select>
+        </div>
+
+        <div class="col-lg-4 d-flex flex-wrap gap-2">
+            <button type="submit" class="btn btn-primary">@L["ApplyFilters"]</button>
+            <a asp-action="Index" class="btn btn-outline-secondary">@L["Clear"]</a>
+            <a asp-action="Export"
+               asp-route-SearchTerm="@filter.SearchTerm"
+               asp-route-City="@filter.City"
+               asp-route-CompanyName="@filter.CompanyName"
+               asp-route-Department="@filter.Department"
+               asp-route-Status="@filter.Status"
+               asp-route-FromDate="@(filter.FromDate?.ToString("yyyy-MM-dd"))"
+               asp-route-ToDate="@(filter.ToDate?.ToString("yyyy-MM-dd"))"
+               asp-route-PageSize="@filter.PageSize"
+               class="btn btn-outline-success">@L["ExportExcel"]</a>
+        </div>
+    </form>
+</section>
+
+<div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2 mb-3">
+    <p class="text-secondary mb-0">
+        @L["ShowingPageOf"] @filter.PageNumber @L["Of"] @totalPages - @L["TotalRecords"]: @Model.TotalCount
+    </p>
+</div>
+
+@if (Model.Customers.Count == 0)
+{
+    <section class="content-panel text-center empty-panel">
+        <div class="empty-illustration mx-auto mb-3">EGM</div>
+        <h2 class="h4 fw-semibold mb-2">@L["NoMatchingCustomers"]</h2>
+        <p class="text-secondary mb-4">@L["NoMatchingCustomersMessage"]</p>
+        <div class="d-flex justify-content-center gap-2">
+            <a asp-action="Index" class="btn btn-outline-secondary">@L["ClearFilters"]</a>
+            <a asp-action="Create" class="btn btn-primary">@L["AddCustomer"]</a>
+        </div>
+    </section>
+}
+else
+{
+    <section class="table-panel mb-4">
+        <div class="table-responsive">
+        <table class="table align-middle app-table">
+            <thead>
+                <tr>
+                    <th>@L["FullName"]</th>
+                    <th>@L["MobileNumber"]</th>
+                    <th>@L["City"]</th>
+                    <th>@L["Company"]</th>
+                    <th>@L["Department"]</th>
+                    <th>@L["Status"]</th>
+                    <th>@L["CreatedAt"]</th>
+                    <th class="text-end">@L["Actions"]</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var customer in Model.Customers)
+                {
+                    <tr>
+                        <td class="fw-semibold">@customer.FullName</td>
+                        <td>@customer.MobileNumber</td>
+                        <td>@(customer.City ?? "-")</td>
+                        <td>@(customer.CompanyName ?? "-")</td>
+                        <td>@(customer.Department ?? "-")</td>
+                        <td>
+                            <span class="badge rounded-pill @(customer.Status == CustomerStatus.Active ? "text-bg-success" : "text-bg-secondary")">
+                                @StatusText(customer.Status)
+                            </span>
+                        </td>
+                        <td>@customer.CreatedAt.ToString("yyyy-MM-dd")</td>
+                        <td>
+                            <div class="d-flex justify-content-end gap-2 table-actions">
+                                <a asp-action="Details" asp-route-id="@customer.Id" class="btn btn-sm btn-outline-primary">@L["Details"]</a>
+                                <a asp-action="Edit" asp-route-id="@customer.Id" class="btn btn-sm btn-outline-secondary">@L["Edit"]</a>
+                                <a asp-action="Delete" asp-route-id="@customer.Id" class="btn btn-sm btn-outline-danger">@L["Delete"]</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        </div>
+    </section>
+
+    <nav aria-label="@L["Customers"]">
+        <ul class="pagination app-pagination flex-wrap">
+            <li class="page-item @(Model.HasPreviousPage ? string.Empty : "disabled")">
+                <a class="page-link"
+                   asp-action="Index"
+                   asp-route-SearchTerm="@filter.SearchTerm"
+                   asp-route-City="@filter.City"
+                   asp-route-CompanyName="@filter.CompanyName"
+                   asp-route-Department="@filter.Department"
+                   asp-route-Status="@filter.Status"
+                   asp-route-FromDate="@(filter.FromDate?.ToString("yyyy-MM-dd"))"
+                   asp-route-ToDate="@(filter.ToDate?.ToString("yyyy-MM-dd"))"
+                   asp-route-PageSize="@filter.PageSize"
+                   asp-route-PageNumber="@(filter.PageNumber - 1)">@L["Previous"]</a>
+            </li>
+
+            @for (var currentPage = startPage; currentPage <= endPage; currentPage++)
+            {
+                <li class="page-item @(currentPage == filter.PageNumber ? "active" : string.Empty)">
+                    <a class="page-link"
+                       asp-action="Index"
+                       asp-route-SearchTerm="@filter.SearchTerm"
+                       asp-route-City="@filter.City"
+                       asp-route-CompanyName="@filter.CompanyName"
+                       asp-route-Department="@filter.Department"
+                       asp-route-Status="@filter.Status"
+                       asp-route-FromDate="@(filter.FromDate?.ToString("yyyy-MM-dd"))"
+                       asp-route-ToDate="@(filter.ToDate?.ToString("yyyy-MM-dd"))"
+                       asp-route-PageSize="@filter.PageSize"
+                       asp-route-PageNumber="@currentPage">@currentPage</a>
+                </li>
+            }
+
+            <li class="page-item @(Model.HasNextPage ? string.Empty : "disabled")">
+                <a class="page-link"
+                   asp-action="Index"
+                   asp-route-SearchTerm="@filter.SearchTerm"
+                   asp-route-City="@filter.City"
+                   asp-route-CompanyName="@filter.CompanyName"
+                   asp-route-Department="@filter.Department"
+                   asp-route-Status="@filter.Status"
+                   asp-route-FromDate="@(filter.FromDate?.ToString("yyyy-MM-dd"))"
+                   asp-route-ToDate="@(filter.ToDate?.ToString("yyyy-MM-dd"))"
+                   asp-route-PageSize="@filter.PageSize"
+                   asp-route-PageNumber="@(filter.PageNumber + 1)">@L["Next"]</a>
+            </li>
+        </ul>
+    </nav>
+}

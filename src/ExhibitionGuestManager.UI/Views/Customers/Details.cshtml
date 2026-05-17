@@ -1,0 +1,73 @@
+@model CustomerDetailsViewModel
+@inject IStringLocalizer<SharedResource> L
+
+@{
+    ViewData["Title"] = L["CustomerDetails"];
+    var statusText = Model.Status == CustomerStatus.Active ? L["Active"] : L["Inactive"];
+}
+
+<div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-4">
+    <div>
+        <h1 class="h3 fw-semibold mb-1">@Model.FullName</h1>
+        <p class="text-secondary mb-0">@L["CustomerDetails"]</p>
+    </div>
+    <div class="d-flex flex-wrap gap-2">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">@L["Edit"]</a>
+        <a asp-action="Index" class="btn btn-outline-secondary">@L["BackToList"]</a>
+    </div>
+</div>
+
+<section class="content-panel">
+    <div class="row g-4 details-grid">
+        <div class="col-md-6">
+            <div class="detail-label">@L["FullName"]</div>
+            <div class="detail-value">@Model.FullName</div>
+        </div>
+        <div class="col-md-6">
+            <div class="detail-label">@L["MobileNumber"]</div>
+            <div class="detail-value">@Model.MobileNumber</div>
+        </div>
+        <div class="col-md-6">
+            <div class="detail-label">@L["City"]</div>
+            <div class="detail-value">@(Model.City ?? "-")</div>
+        </div>
+        <div class="col-md-6">
+            <div class="detail-label">@L["Company"]</div>
+            <div class="detail-value">@(Model.CompanyName ?? "-")</div>
+        </div>
+        <div class="col-md-6">
+            <div class="detail-label">@L["Department"]</div>
+            <div class="detail-value">@(Model.Department ?? "-")</div>
+        </div>
+        <div class="col-md-6">
+            <div class="detail-label">@L["Status"]</div>
+            <span class="badge rounded-pill detail-badge @(Model.Status == CustomerStatus.Active ? "text-bg-success" : "text-bg-secondary")">
+                @statusText
+            </span>
+        </div>
+        <div class="col-md-6">
+            <div class="detail-label">@L["GeneralNotes"]</div>
+            <div class="detail-value pre-wrap">@(Model.GeneralNotes ?? "-")</div>
+        </div>
+        <div class="col-md-6">
+            <div class="detail-label">@L["InternalNotes"]</div>
+            <div class="detail-value pre-wrap">@(Model.InternalNotes ?? "-")</div>
+        </div>
+        <div class="col-md-3">
+            <div class="detail-label">@L["CreatedAt"]</div>
+            <div class="detail-value">@Model.CreatedAt.ToString("yyyy-MM-dd HH:mm")</div>
+        </div>
+        <div class="col-md-3">
+            <div class="detail-label">@L["CreatedBy"]</div>
+            <div class="detail-value">@(Model.CreatedBy ?? "-")</div>
+        </div>
+        <div class="col-md-3">
+            <div class="detail-label">@L["UpdatedAt"]</div>
+            <div class="detail-value">@(Model.UpdatedAt?.ToString("yyyy-MM-dd HH:mm") ?? "-")</div>
+        </div>
+        <div class="col-md-3">
+            <div class="detail-label">@L["UpdatedBy"]</div>
+            <div class="detail-value">@(Model.UpdatedBy ?? "-")</div>
+        </div>
+    </div>
+</section>
