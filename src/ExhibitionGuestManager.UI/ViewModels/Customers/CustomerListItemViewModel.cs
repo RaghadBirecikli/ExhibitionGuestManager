@@ -1,22 +1,22 @@
-using ExhibitionGuestManager.Domain.Enums;
-
 namespace ExhibitionGuestManager.UI.ViewModels.Customers;
 
 public class CustomerListItemViewModel
 {
     public int Id { get; set; }
 
-    public string FullName { get; set; } = string.Empty;
+    public string Title { get; set; } = string.Empty;
+
+    public string Name { get; set; } = string.Empty;
+
+    public string? Position { get; set; }
 
     public string MobileNumber { get; set; } = string.Empty;
 
     public string? City { get; set; }
 
-    public string? CompanyName { get; set; }
+    public string? OrganizationName { get; set; }
 
-    public string? Department { get; set; }
+    public string? Email { get; set; }
 
-    public CustomerStatus Status { get; set; }
-
-    public DateTime CreatedAt { get; set; }
+    public IReadOnlyList<string> Interests { get; set; } = Array.Empty<string>();
 }

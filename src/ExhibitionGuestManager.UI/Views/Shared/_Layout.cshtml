@@ -25,12 +25,11 @@
     <div class="app-shell">
     <nav class="navbar navbar-expand-lg app-navbar">
         <div class="container app-navbar-container">
-            <a class="navbar-brand d-flex align-items-center gap-3" asp-controller="Home" asp-action="Index">
+            <a class="navbar-brand app-brand d-flex align-items-center" asp-controller="Home" asp-action="Index">
                 <span class="navbar-logo-wrap">
-                    <img src="~/images/logo.png" alt="@L["AppName"]" class="navbar-logo" onerror="this.style.display='none'; this.parentElement.classList.add('logo-missing');" />
+                    <img src="~/images/adlas-logo.png" asp-append-version="true" alt="@L["AppName"]" class="navbar-logo" onerror="this.style.display='none'; this.parentElement.classList.add('logo-missing');" />
                 </span>
                 <span class="brand-copy">
-                    <span class="brand-kicker">EGM</span>
                     <span class="brand-title">@L["AppName"]</span>
                 </span>
             </a>

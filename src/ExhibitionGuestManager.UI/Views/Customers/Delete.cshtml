@@ -3,7 +3,6 @@
 
 @{
     ViewData["Title"] = L["DeleteCustomer"];
-    var statusText = Model.Status == CustomerStatus.Active ? L["Active"] : L["Inactive"];
 }
 
 <div class="mb-4">
@@ -18,22 +17,40 @@
 
     <div class="row g-4 mb-4">
         <div class="col-md-6">
-            <div class="detail-label">@L["FullName"]</div>
-            <div class="detail-value">@Model.FullName</div>
+            <div class="detail-label">@L["Name"]</div>
+            <div class="detail-value">@Model.Name</div>
         </div>
         <div class="col-md-6">
             <div class="detail-label">@L["MobileNumber"]</div>
             <div class="detail-value">@Model.MobileNumber</div>
         </div>
         <div class="col-md-6">
-            <div class="detail-label">@L["Company"]</div>
-            <div class="detail-value">@(Model.CompanyName ?? "-")</div>
+            <div class="detail-label">@L["OrganizationName"]</div>
+            <div class="detail-value">@(Model.OrganizationName ?? "-")</div>
         </div>
         <div class="col-md-6">
-            <div class="detail-label">@L["Status"]</div>
-            <span class="badge rounded-pill detail-badge @(Model.Status == CustomerStatus.Active ? "text-bg-success" : "text-bg-secondary")">
-                @statusText
-            </span>
+            <div class="detail-label">@L["City"]</div>
+            <div class="detail-value">@(Model.City ?? "-")</div>
+        </div>
+        <div class="col-md-6">
+            <div class="detail-label">@L["Email"]</div>
+            <div class="detail-value">@(Model.Email ?? "-")</div>
+        </div>
+        <div class="col-md-6">
+            <div class="detail-label">@L["Interests"]</div>
+            @if (Model.Interests.Count == 0)
+            {
+                <div class="detail-value">-</div>
+            }
+            else
+            {
+                <div class="interest-badges">
+                    @foreach (var interest in Model.Interests)
+                    {
+                        <span class="badge rounded-pill text-bg-light interest-badge">@L[interest]</span>
+                    }
+                </div>
+            }
         </div>
     </div>
 

@@ -9,13 +9,6 @@
     var endPage = Math.Min(totalPages, filter.PageNumber + 2);
 }
 
-@functions {
-    private string StatusText(CustomerStatus status)
-    {
-        return status == CustomerStatus.Active ? L["Active"] : L["Inactive"];
-    }
-}
-
 <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-4">
     <div>
         <h1 class="h3 fw-semibold mb-1">@L["Customers"]</h1>
@@ -39,22 +32,13 @@
         </div>
 
         <div class="col-lg-3 col-md-6">
-            <label asp-for="Filter.CompanyName" class="form-label">@L["Company"]</label>
-            <input asp-for="Filter.CompanyName" name="CompanyName" class="form-control" />
+            <label asp-for="Filter.OrganizationName" class="form-label">@L["OrganizationName"]</label>
+            <input asp-for="Filter.OrganizationName" name="OrganizationName" class="form-control" />
         </div>
 
         <div class="col-lg-3 col-md-6">
-            <label asp-for="Filter.Department" class="form-label">@L["Department"]</label>
-            <input asp-for="Filter.Department" name="Department" class="form-control" />
-        </div>
-
-        <div class="col-lg-2 col-md-6">
-            <label asp-for="Filter.Status" class="form-label">@L["Status"]</label>
-            <select asp-for="Filter.Status" name="Status" class="form-select">
-                <option value="">@L["All"]</option>
-                <option value="@CustomerStatus.Active">@L["Active"]</option>
-                <option value="@CustomerStatus.Inactive">@L["Inactive"]</option>
-            </select>
+            <label asp-for="Filter.Position" class="form-label">@L["Position"]</label>
+            <input asp-for="Filter.Position" name="Position" class="form-control" />
         </div>
 
         <div class="col-lg-2 col-md-6">
@@ -77,15 +61,14 @@
             </select>
         </div>
 
-        <div class="col-lg-4 d-flex flex-wrap gap-2">
+        <div class="col-lg-6 d-flex flex-wrap gap-2">
             <button type="submit" class="btn btn-primary">@L["ApplyFilters"]</button>
             <a asp-action="Index" class="btn btn-outline-secondary">@L["Clear"]</a>
             <a asp-action="Export"
                asp-route-SearchTerm="@filter.SearchTerm"
                asp-route-City="@filter.City"
-               asp-route-CompanyName="@filter.CompanyName"
-               asp-route-Department="@filter.Department"
-               asp-route-Status="@filter.Status"
+               asp-route-OrganizationName="@filter.OrganizationName"
+               asp-route-Position="@filter.Position"
                asp-route-FromDate="@(filter.FromDate?.ToString("yyyy-MM-dd"))"
                asp-route-ToDate="@(filter.ToDate?.ToString("yyyy-MM-dd"))"
                asp-route-PageSize="@filter.PageSize"
@@ -103,7 +86,7 @@
 @if (Model.Customers.Count == 0)
 {
     <section class="content-panel text-center empty-panel">
-        <div class="empty-illustration mx-auto mb-3">EGM</div>
+        <div class="empty-illustration mx-auto mb-3">AD</div>
         <h2 class="h4 fw-semibold mb-2">@L["NoMatchingCustomers"]</h2>
         <p class="text-secondary mb-4">@L["NoMatchingCustomersMessage"]</p>
         <div class="d-flex justify-content-center gap-2">
@@ -116,45 +99,57 @@ else
 {
     <section class="table-panel mb-4">
         <div class="table-responsive">
-        <table class="table align-middle app-table">
-            <thead>
-                <tr>
-                    <th>@L["FullName"]</th>
-                    <th>@L["MobileNumber"]</th>
-                    <th>@L["City"]</th>
-                    <th>@L["Company"]</th>
-                    <th>@L["Department"]</th>
-                    <th>@L["Status"]</th>
-                    <th>@L["CreatedAt"]</th>
-                    <th class="text-end">@L["Actions"]</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var customer in Model.Customers)
-                {
+            <table class="table align-middle app-table">
+                <thead>
                     <tr>
-                        <td class="fw-semibold">@customer.FullName</td>
-                        <td>@customer.MobileNumber</td>
-                        <td>@(customer.City ?? "-")</td>
-                        <td>@(customer.CompanyName ?? "-")</td>
-                        <td>@(customer.Department ?? "-")</td>
-                        <td>
-                            <span class="badge rounded-pill @(customer.Status == CustomerStatus.Active ? "text-bg-success" : "text-bg-secondary")">
-                                @StatusText(customer.Status)
-                            </span>
-                        </td>
-                        <td>@customer.CreatedAt.ToString("yyyy-MM-dd")</td>
-                        <td>
-                            <div class="d-flex justify-content-end gap-2 table-actions">
-                                <a asp-action="Details" asp-route-id="@customer.Id" class="btn btn-sm btn-outline-primary">@L["Details"]</a>
-                                <a asp-action="Edit" asp-route-id="@customer.Id" class="btn btn-sm btn-outline-secondary">@L["Edit"]</a>
-                                <a asp-action="Delete" asp-route-id="@customer.Id" class="btn btn-sm btn-outline-danger">@L["Delete"]</a>
-                            </div>
-                        </td>
+                        <th>@L["Title"]</th>
+                        <th>@L["Name"]</th>
+                        <th>@L["Position"]</th>
+                        <th>@L["MobileNumber"]</th>
+                        <th>@L["City"]</th>
+                        <th>@L["OrganizationName"]</th>
+                        <th>@L["Email"]</th>
+                        <th>@L["Interests"]</th>
+                        <th class="text-end">@L["Actions"]</th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var customer in Model.Customers)
+                    {
+                        <tr>
+                            <td>@(string.IsNullOrWhiteSpace(customer.Title) ? "-" : L[customer.Title])</td>
+                            <td class="fw-semibold">@customer.Name</td>
+                            <td>@(customer.Position ?? "-")</td>
+                            <td>@customer.MobileNumber</td>
+                            <td>@(customer.City ?? "-")</td>
+                            <td>@(customer.OrganizationName ?? "-")</td>
+                            <td>@(customer.Email ?? "-")</td>
+                            <td>
+                                @if (customer.Interests.Count == 0)
+                                {
+                                    <span>-</span>
+                                }
+                                else
+                                {
+                                    <div class="interest-badges">
+                                        @foreach (var interest in customer.Interests)
+                                        {
+                                            <span class="badge rounded-pill text-bg-light interest-badge">@L[interest]</span>
+                                        }
+                                    </div>
+                                }
+                            </td>
+                            <td>
+                                <div class="d-flex justify-content-end gap-2 table-actions">
+                                    <a asp-action="Details" asp-route-id="@customer.Id" class="btn btn-sm btn-outline-primary">@L["Details"]</a>
+                                    <a asp-action="Edit" asp-route-id="@customer.Id" class="btn btn-sm btn-outline-secondary">@L["Edit"]</a>
+                                    <a asp-action="Delete" asp-route-id="@customer.Id" class="btn btn-sm btn-outline-danger">@L["Delete"]</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
         </div>
     </section>
 
@@ -165,9 +160,8 @@ else
                    asp-action="Index"
                    asp-route-SearchTerm="@filter.SearchTerm"
                    asp-route-City="@filter.City"
-                   asp-route-CompanyName="@filter.CompanyName"
-                   asp-route-Department="@filter.Department"
-                   asp-route-Status="@filter.Status"
+                   asp-route-OrganizationName="@filter.OrganizationName"
+                   asp-route-Position="@filter.Position"
                    asp-route-FromDate="@(filter.FromDate?.ToString("yyyy-MM-dd"))"
                    asp-route-ToDate="@(filter.ToDate?.ToString("yyyy-MM-dd"))"
                    asp-route-PageSize="@filter.PageSize"
@@ -181,9 +175,8 @@ else
                        asp-action="Index"
                        asp-route-SearchTerm="@filter.SearchTerm"
                        asp-route-City="@filter.City"
-                       asp-route-CompanyName="@filter.CompanyName"
-                       asp-route-Department="@filter.Department"
-                       asp-route-Status="@filter.Status"
+                       asp-route-OrganizationName="@filter.OrganizationName"
+                       asp-route-Position="@filter.Position"
                        asp-route-FromDate="@(filter.FromDate?.ToString("yyyy-MM-dd"))"
                        asp-route-ToDate="@(filter.ToDate?.ToString("yyyy-MM-dd"))"
                        asp-route-PageSize="@filter.PageSize"
@@ -196,9 +189,8 @@ else
                    asp-action="Index"
                    asp-route-SearchTerm="@filter.SearchTerm"
                    asp-route-City="@filter.City"
-                   asp-route-CompanyName="@filter.CompanyName"
-                   asp-route-Department="@filter.Department"
-                   asp-route-Status="@filter.Status"
+                   asp-route-OrganizationName="@filter.OrganizationName"
+                   asp-route-Position="@filter.Position"
                    asp-route-FromDate="@(filter.FromDate?.ToString("yyyy-MM-dd"))"
                    asp-route-ToDate="@(filter.ToDate?.ToString("yyyy-MM-dd"))"
                    asp-route-PageSize="@filter.PageSize"

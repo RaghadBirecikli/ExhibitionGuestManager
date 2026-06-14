@@ -1,91 +1,357 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
-  <resheader name="version"><value>2.0</value></resheader>
-  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
-  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
-  <data name="AccessDenied" xml:space="preserve"><value>غير مصرح بالوصول</value></data>
-  <data name="AccessDeniedMessage" xml:space="preserve"><value>لا تملك صلاحية الوصول إلى هذه الصفحة.</value></data>
-  <data name="Actions" xml:space="preserve"><value>الإجراءات</value></data>
-  <data name="Active" xml:space="preserve"><value>نشط</value></data>
-  <data name="AddCustomer" xml:space="preserve"><value>إضافة ضيف</value></data>
-  <data name="All" xml:space="preserve"><value>الكل</value></data>
-  <data name="AppName" xml:space="preserve"><value>إدارة ضيوف المعرض</value></data>
-  <data name="ApplyFilters" xml:space="preserve"><value>تطبيق الفلاتر</value></data>
-  <data name="Back" xml:space="preserve"><value>العودة</value></data>
-  <data name="BackToList" xml:space="preserve"><value>الرجوع للقائمة</value></data>
-  <data name="Cancel" xml:space="preserve"><value>إلغاء</value></data>
-  <data name="City" xml:space="preserve"><value>المدينة</value></data>
-  <data name="Clear" xml:space="preserve"><value>مسح</value></data>
-  <data name="ClearFilters" xml:space="preserve"><value>مسح الفلاتر</value></data>
-  <data name="Company" xml:space="preserve"><value>الشركة</value></data>
-  <data name="ConfirmDelete" xml:space="preserve"><value>تأكيد الحذف</value></data>
-  <data name="CreateCustomer" xml:space="preserve"><value>إضافة ضيف</value></data>
-  <data name="CreateCustomerSubtitle" xml:space="preserve"><value>أضف سجل ضيف جديد إلى قائمة المعرض.</value></data>
-  <data name="CreatedAt" xml:space="preserve"><value>تاريخ الإنشاء</value></data>
-  <data name="CreatedBy" xml:space="preserve"><value>أنشئ بواسطة</value></data>
-  <data name="CustomerCreated" xml:space="preserve"><value>تمت إضافة الضيف بنجاح.</value></data>
-  <data name="CustomerCreatedSuccessfully" xml:space="preserve"><value>تمت إضافة الضيف بنجاح.</value></data>
-  <data name="CustomerDeleted" xml:space="preserve"><value>تم حذف الضيف بنجاح.</value></data>
-  <data name="CustomerDeletedSuccessfully" xml:space="preserve"><value>تم حذف الضيف بنجاح.</value></data>
-  <data name="CustomerDetails" xml:space="preserve"><value>تفاصيل الضيف</value></data>
-  <data name="CustomerUpdated" xml:space="preserve"><value>تم تحديث بيانات الضيف بنجاح.</value></data>
-  <data name="CustomerUpdatedSuccessfully" xml:space="preserve"><value>تم تحديث بيانات الضيف بنجاح.</value></data>
-  <data name="Customers" xml:space="preserve"><value>الضيوف</value></data>
-  <data name="CustomersSubtitle" xml:space="preserve"><value>ابحث وفلتر وأدر بيانات ضيوف المعرض.</value></data>
-  <data name="Delete" xml:space="preserve"><value>حذف</value></data>
-  <data name="DeleteCustomer" xml:space="preserve"><value>حذف ضيف</value></data>
-  <data name="DeleteCustomerSubtitle" xml:space="preserve"><value>أكد حذف سجل الضيف من القوائم النشطة.</value></data>
-  <data name="DeleteWarning" xml:space="preserve"><value>سيتم إزالة الضيف من القوائم النشطة مع الاحتفاظ بالسجل لأغراض التدقيق.</value></data>
-  <data name="DemoCredentials" xml:space="preserve"><value>بيانات تجريبية</value></data>
-  <data name="Department" xml:space="preserve"><value>الجهة / القسم</value></data>
-  <data name="Details" xml:space="preserve"><value>التفاصيل</value></data>
-  <data name="Edit" xml:space="preserve"><value>تعديل</value></data>
-  <data name="EditCustomer" xml:space="preserve"><value>تعديل ضيف</value></data>
-  <data name="EditCustomerSubtitle" xml:space="preserve"><value>حدّث بيانات الضيف الحالية.</value></data>
-  <data name="Email" xml:space="preserve"><value>البريد الإلكتروني</value></data>
-  <data name="Error" xml:space="preserve"><value>خطأ</value></data>
-  <data name="ErrorMessage" xml:space="preserve"><value>تعذر إكمال الطلب. يرجى المحاولة مرة أخرى.</value></data>
-  <data name="ErrorTitle" xml:space="preserve"><value>حدث خطأ غير متوقع</value></data>
-  <data name="ExportExcel" xml:space="preserve"><value>تصدير Excel</value></data>
-  <data name="FromDate" xml:space="preserve"><value>من تاريخ</value></data>
-  <data name="FullName" xml:space="preserve"><value>الاسم الكامل</value></data>
-  <data name="GeneralNotes" xml:space="preserve"><value>ملاحظات عامة</value></data>
-  <data name="HomeSubtitle" xml:space="preserve"><value>سيتم نقلك إلى الصفحة المناسبة.</value></data>
-  <data name="HomeTitle" xml:space="preserve"><value>جار التحويل...</value></data>
-  <data name="Inactive" xml:space="preserve"><value>غير نشط</value></data>
-  <data name="InternalNotes" xml:space="preserve"><value>ملاحظات داخلية</value></data>
-  <data name="InvalidLoginAttempt" xml:space="preserve"><value>بيانات تسجيل الدخول غير صحيحة.</value></data>
-  <data name="LanguageArabic" xml:space="preserve"><value>العربية</value></data>
-  <data name="LanguageEnglish" xml:space="preserve"><value>English</value></data>
-  <data name="Login" xml:space="preserve"><value>تسجيل الدخول</value></data>
-  <data name="LoginSubtitle" xml:space="preserve"><value>أدخل بيانات حسابك للوصول إلى النظام</value></data>
-  <data name="LoginTitle" xml:space="preserve"><value>تسجيل الدخول</value></data>
-  <data name="Logout" xml:space="preserve"><value>تسجيل الخروج</value></data>
-  <data name="MobileNumber" xml:space="preserve"><value>رقم الجوال</value></data>
-  <data name="Next" xml:space="preserve"><value>التالي</value></data>
-  <data name="NoMatchingCustomers" xml:space="preserve"><value>لا توجد نتائج مطابقة</value></data>
-  <data name="NoMatchingCustomersMessage" xml:space="preserve"><value>جرّب تعديل الفلاتر أو أضف ضيفاً جديداً.</value></data>
-  <data name="NoCustomers" xml:space="preserve"><value>لا يوجد ضيوف بعد</value></data>
-  <data name="Of" xml:space="preserve"><value>من</value></data>
-  <data name="PageSize" xml:space="preserve"><value>عدد النتائج</value></data>
-  <data name="Password" xml:space="preserve"><value>كلمة المرور</value></data>
-  <data name="Previous" xml:space="preserve"><value>السابق</value></data>
-  <data name="Redirecting" xml:space="preserve"><value>جار التحويل...</value></data>
-  <data name="RedirectingMessage" xml:space="preserve"><value>سيتم نقلك إلى الصفحة المناسبة.</value></data>
-  <data name="RememberMe" xml:space="preserve"><value>تذكرني</value></data>
-  <data name="ReturnHome" xml:space="preserve"><value>العودة للرئيسية</value></data>
-  <data name="Save" xml:space="preserve"><value>حفظ</value></data>
-  <data name="SaveChanges" xml:space="preserve"><value>حفظ التعديلات</value></data>
-  <data name="Search" xml:space="preserve"><value>بحث</value></data>
-  <data name="SearchPlaceholder" xml:space="preserve"><value>الاسم، الجوال، المدينة، الشركة...</value></data>
-  <data name="SearchTerm" xml:space="preserve"><value>بحث</value></data>
-  <data name="ShowingPageSummary" xml:space="preserve"><value>الصفحة {0} من {1} - إجمالي السجلات: {2}</value></data>
-  <data name="ShowingPageOf" xml:space="preserve"><value>عرض الصفحة</value></data>
-  <data name="SignIn" xml:space="preserve"><value>دخول</value></data>
-  <data name="Status" xml:space="preserve"><value>الحالة</value></data>
-  <data name="ToDate" xml:space="preserve"><value>إلى تاريخ</value></data>
-  <data name="TotalRecords" xml:space="preserve"><value>إجمالي السجلات</value></data>
-  <data name="UpdatedAt" xml:space="preserve"><value>تاريخ التحديث</value></data>
-  <data name="UpdatedBy" xml:space="preserve"><value>حُدث بواسطة</value></data>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccessDenied" xml:space="preserve">
+    <value>غير مصرح بالوصول</value>
+  </data>
+  <data name="AccessDeniedMessage" xml:space="preserve">
+    <value>لا تملك صلاحية الوصول إلى هذه الصفحة.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>الإجراءات</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>نشط</value>
+  </data>
+  <data name="AddCustomer" xml:space="preserve">
+    <value>إضافة ضيف</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>الكل</value>
+  </data>
+  <data name="BasicInformation" xml:space="preserve">
+    <value>المعلومات الأساسية</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>نظام إدارة ضيوف أكاديمية أدلاس</value>
+  </data>
+  <data name="ApplyFilters" xml:space="preserve">
+    <value>تطبيق الفلاتر</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>العودة</value>
+  </data>
+  <data name="BackToList" xml:space="preserve">
+    <value>الرجوع للقائمة</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>إلغاء</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>المدينة</value>
+  </data>
+  <data name="ACEBOTTRobots" xml:space="preserve">
+    <value>روبوتات ACEBOTT</value>
+  </data>
+  <data name="AfterSchoolMentalArithmeticProgram" xml:space="preserve">
+    <value>برنامج الحساب الذهني لما بعد المدرسة</value>
+  </data>
+  <data name="AfterSchoolProgramsPackage" xml:space="preserve">
+    <value>حزمة برامج ما بعد المدرسة</value>
+  </data>
+  <data name="ArticRobots" xml:space="preserve">
+    <value>روبوتات Artic</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>مسح</value>
+  </data>
+  <data name="ClearFilters" xml:space="preserve">
+    <value>مسح الفلاتر</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>الشركة</value>
+  </data>
+  <data name="CurriculumBooks" xml:space="preserve">
+    <value>كتب مناهج</value>
+  </data>
+  <data name="ConfirmDelete" xml:space="preserve">
+    <value>تأكيد الحذف</value>
+  </data>
+  <data name="CreateCustomer" xml:space="preserve">
+    <value>إضافة ضيف</value>
+  </data>
+  <data name="CreateCustomerSubtitle" xml:space="preserve">
+    <value>أضف سجل ضيف جديد إلى قائمة المعرض.</value>
+  </data>
+  <data name="CreatedAt" xml:space="preserve">
+    <value>تاريخ الإنشاء</value>
+  </data>
+  <data name="CreatedBy" xml:space="preserve">
+    <value>أنشئ بواسطة</value>
+  </data>
+  <data name="CustomerCreated" xml:space="preserve">
+    <value>تمت إضافة الضيف بنجاح.</value>
+  </data>
+  <data name="CustomerCreatedSuccessfully" xml:space="preserve">
+    <value>تمت إضافة الضيف بنجاح.</value>
+  </data>
+  <data name="CustomerDeleted" xml:space="preserve">
+    <value>تم حذف الضيف بنجاح.</value>
+  </data>
+  <data name="CustomerDeletedSuccessfully" xml:space="preserve">
+    <value>تم حذف الضيف بنجاح.</value>
+  </data>
+  <data name="CustomerDetails" xml:space="preserve">
+    <value>تفاصيل الضيف</value>
+  </data>
+  <data name="CustomerUpdated" xml:space="preserve">
+    <value>تم تحديث بيانات الضيف بنجاح.</value>
+  </data>
+  <data name="CustomerUpdatedSuccessfully" xml:space="preserve">
+    <value>تم تحديث بيانات الضيف بنجاح.</value>
+  </data>
+  <data name="Customers" xml:space="preserve">
+    <value>الضيوف</value>
+  </data>
+  <data name="CustomersSubtitle" xml:space="preserve">
+    <value>ابحث وفلتر وأدر بيانات ضيوف المعرض.</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="DeleteCustomer" xml:space="preserve">
+    <value>حذف ضيف</value>
+  </data>
+  <data name="DeleteCustomerSubtitle" xml:space="preserve">
+    <value>أكد حذف سجل الضيف من القوائم النشطة.</value>
+  </data>
+  <data name="DeleteWarning" xml:space="preserve">
+    <value>سيتم إزالة الضيف من القوائم النشطة مع الاحتفاظ بالسجل لأغراض التدقيق.</value>
+  </data>
+  <data name="DemoCredentials" xml:space="preserve">
+    <value>بيانات تجريبية</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>الجهة / القسم</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>التفاصيل</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>تعديل</value>
+  </data>
+  <data name="EditCustomer" xml:space="preserve">
+    <value>تعديل ضيف</value>
+  </data>
+  <data name="EditCustomerSubtitle" xml:space="preserve">
+    <value>حدّث بيانات الضيف الحالية.</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>الإيميل</value>
+  </data>
+  <data name="EmailInvalid" xml:space="preserve">
+    <value>البريد الإلكتروني غير صحيح.</value>
+  </data>
+  <data name="EnglishExamPreparationCourses" xml:space="preserve">
+    <value>دورات إعداد لاختبارات لغة انجليزية</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>خطأ</value>
+  </data>
+  <data name="ErrorMessage" xml:space="preserve">
+    <value>تعذر إكمال الطلب. يرجى المحاولة مرة أخرى.</value>
+  </data>
+  <data name="ErrorTitle" xml:space="preserve">
+    <value>حدث خطأ غير متوقع</value>
+  </data>
+  <data name="ExportExcel" xml:space="preserve">
+    <value>تصدير Excel</value>
+  </data>
+  <data name="FromDate" xml:space="preserve">
+    <value>من تاريخ</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>الاسم الكامل</value>
+  </data>
+  <data name="BilingersBilingualKindergartenProgram" xml:space="preserve">
+    <value>برنامج رياض الأطفال ثنائي اللغة Bilingers</value>
+  </data>
+  <data name="GeneralNotes" xml:space="preserve">
+    <value>ملاحظات عامة</value>
+  </data>
+  <data name="HomeSubtitle" xml:space="preserve">
+    <value>إدارة ضيوف الأكاديمية وزوار المعارض من خلال نظام حديث ثنائي اللغة.</value>
+  </data>
+  <data name="HomeTitle" xml:space="preserve">
+    <value>نظام إدارة ضيوف أكاديمية أدلاس</value>
+  </data>
+  <data name="Inactive" xml:space="preserve">
+    <value>غير نشط</value>
+  </data>
+  <data name="InternalNotes" xml:space="preserve">
+    <value>ملاحظات داخلية</value>
+  </data>
+  <data name="Interests" xml:space="preserve">
+    <value>الاهتمامات</value>
+  </data>
+  <data name="InterestRequired" xml:space="preserve">
+    <value>يرجى اختيار اهتمام واحد على الأقل.</value>
+  </data>
+  <data name="InvalidLoginAttempt" xml:space="preserve">
+    <value>بيانات تسجيل الدخول غير صحيحة.</value>
+  </data>
+  <data name="LanguageArabic" xml:space="preserve">
+    <value>العربية</value>
+  </data>
+  <data name="LanguageEnglish" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="LoginSubtitle" xml:space="preserve">
+    <value>سجّل الدخول لإدارة ضيوف وزوار أكاديمية أدلاس.</value>
+  </data>
+  <data name="LoginTitle" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>تسجيل الخروج</value>
+  </data>
+  <data name="MobileNumber" xml:space="preserve">
+    <value>رقم الجوال</value>
+  </data>
+  <data name="MobileNumberRequired" xml:space="preserve">
+    <value>رقم الجوال مطلوب.</value>
+  </data>
+  <data name="MobileNumberMustBe10Digits" xml:space="preserve">
+    <value>رقم الجوال يجب أن يتكون من 10 أرقام فقط.</value>
+  </data>
+  <data name="MrMrs" xml:space="preserve">
+    <value>السيد/السيدة</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>الاسم</value>
+  </data>
+  <data name="NameRequired" xml:space="preserve">
+    <value>الاسم مطلوب.</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>التالي</value>
+  </data>
+  <data name="NoMatchingCustomers" xml:space="preserve">
+    <value>لا توجد نتائج مطابقة</value>
+  </data>
+  <data name="NoMatchingCustomersMessage" xml:space="preserve">
+    <value>جرّب تعديل الفلاتر أو أضف ضيفاً جديداً.</value>
+  </data>
+  <data name="NoCustomers" xml:space="preserve">
+    <value>لا يوجد ضيوف بعد</value>
+  </data>
+  <data name="Of" xml:space="preserve">
+    <value>من</value>
+  </data>
+  <data name="OrganizationName" xml:space="preserve">
+    <value>اسم الجهة</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>أخرى</value>
+  </data>
+  <data name="OtherInterest" xml:space="preserve">
+    <value>أخرى</value>
+  </data>
+  <data name="PageSize" xml:space="preserve">
+    <value>عدد النتائج</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>كلمة المرور</value>
+  </data>
+  <data name="Position" xml:space="preserve">
+    <value>المنصب</value>
+  </data>
+  <data name="ProfessionalExamPreparationCourses" xml:space="preserve">
+    <value>دورات إعداد لاختبارات احترافية</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>السابق</value>
+  </data>
+  <data name="Redirecting" xml:space="preserve">
+    <value>جار التحويل...</value>
+  </data>
+  <data name="RedirectingMessage" xml:space="preserve">
+    <value>سيتم نقلك إلى الصفحة المناسبة.</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>تذكرني</value>
+  </data>
+  <data name="ReturnHome" xml:space="preserve">
+    <value>العودة للرئيسية</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+  <data name="SaveChanges" xml:space="preserve">
+    <value>حفظ التعديلات</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>بحث</value>
+  </data>
+  <data name="SearchPlaceholder" xml:space="preserve">
+    <value>الاسم، الجوال، المدينة، الجهة، الإيميل...</value>
+  </data>
+  <data name="SearchTerm" xml:space="preserve">
+    <value>بحث</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>اختر</value>
+  </data>
+  <data name="ShowingPageSummary" xml:space="preserve">
+    <value>الصفحة {0} من {1} - إجمالي السجلات: {2}</value>
+  </data>
+  <data name="ShowingPageOf" xml:space="preserve">
+    <value>عرض الصفحة</value>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>دخول</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>الحالة</value>
+  </data>
+  <data name="Teacher" xml:space="preserve">
+    <value>الأستاذ/ة</value>
+  </data>
+  <data name="TeacherTrainingWorkshops" xml:space="preserve">
+    <value>ورش تدريب المعلمات</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>اللقب</value>
+  </data>
+  <data name="TitleRequired" xml:space="preserve">
+    <value>اللقب مطلوب.</value>
+  </data>
+  <data name="TrainingKits" xml:space="preserve">
+    <value>حقائب تدريب</value>
+  </data>
+  <data name="RoboticsLab" xml:space="preserve">
+    <value>معمل روبوتات</value>
+  </data>
+  <data name="Doctor" xml:space="preserve">
+    <value>الدكتور/ة</value>
+  </data>
+  <data name="HelloCodeProgrammingProgram" xml:space="preserve">
+    <value>برنامج هلوكود للبرمجة</value>
+  </data>
+  <data name="ToDate" xml:space="preserve">
+    <value>إلى تاريخ</value>
+  </data>
+  <data name="TotalRecords" xml:space="preserve">
+    <value>إجمالي السجلات</value>
+  </data>
+  <data name="UpdatedAt" xml:space="preserve">
+    <value>تاريخ التحديث</value>
+  </data>
+  <data name="UpdatedBy" xml:space="preserve">
+    <value>حُدث بواسطة</value>
+  </data>
 </root>

@@ -1,22 +1,20 @@
-using ExhibitionGuestManager.Domain.Enums;
-
 namespace ExhibitionGuestManager.Application.DTOs;
 
 public class CreateCustomerDto
 {
-    public string FullName { get; set; } = string.Empty;
+    public string Title { get; set; } = string.Empty;
+
+    public string Name { get; set; } = string.Empty;
+
+    public string? Position { get; set; }
 
     public string MobileNumber { get; set; } = string.Empty;
 
     public string? City { get; set; }
 
-    public string? CompanyName { get; set; }
+    public string? OrganizationName { get; set; }
 
-    public string? Department { get; set; }
+    public string? Email { get; set; }
 
-    public CustomerStatus Status { get; set; } = CustomerStatus.Active;
-
-    public string? GeneralNotes { get; set; }
-
-    public string? InternalNotes { get; set; }
+    public IReadOnlyList<string> Interests { get; set; } = Array.Empty<string>();
 }

@@ -1,13 +1,13 @@
-# Exhibition Guest Manager / نظام إدارة ضيوف المعرض
+# ADLAS Academy Guest Manager / نظام إدارة ضيوف أكاديمية أدلس
 
-A bilingual ASP.NET Core MVC web application for managing exhibition guests/customers.
+A bilingual ASP.NET Core MVC web application branded for ADLAS Academy to manage academy guests and exhibition visitors.
 
-تطبيق ويب ثنائي اللغة باستخدام ASP.NET Core MVC لإدارة ضيوف / عملاء المعارض.
+تطبيق ويب ثنائي اللغة باستخدام ASP.NET Core MVC بهوية أكاديمية أدلس لإدارة ضيوف الأكاديمية وزوار المعارض.
 
 ## English
 
 ### Overview
-Exhibition Guest Manager is a public portfolio/demo project built as a clean layered ASP.NET Core MVC application. It provides a modern bilingual interface for managing exhibition guests with Arabic/English localization and RTL/LTR support.
+ADLAS Academy Guest Manager is the ADLAS Academy branded version of the Exhibition Guest Manager project. It provides a modern bilingual interface for managing guests with Arabic/English localization and RTL/LTR support.
 
 ### Main Features
 - Secure login using ASP.NET Core Identity
@@ -34,9 +34,8 @@ Exhibition Guest Manager is a public portfolio/demo project built as a clean lay
 - `ExhibitionGuestManager.Infrastructure`
 - `ExhibitionGuestManager.UI`
 
-### Demo Login
-- Email: `admin@example.com`
-- Password: `Admin@12345`
+### Login
+Credentials are seeded for authorized internal use. Do not publish shared credentials in client-facing materials.
 
 ### How to Run
 1. Install the .NET 8 SDK.
@@ -47,7 +46,7 @@ dotnet restore
 ```
 
 3. Configure the SQL Server connection string in `appsettings.json` or user secrets.
-4. Before running the app, make sure the SQL Server database configured in `appsettings.json` exists and is accessible by the current Windows/user account. This public portfolio version does not include EF Core migrations.
+4. Before running the app, make sure the SQL Server database configured in `appsettings.json` exists and is accessible by the current Windows/user account. This version does not include EF Core migrations.
 5. Build the solution:
 
 ```bash
@@ -81,13 +80,13 @@ dotnet run --project src/ExhibitionGuestManager.UI/ExhibitionGuestManager.UI.csp
 - No CQRS
 - No MediatR
 
-### Portfolio Note
-This is a portfolio/demo version and does not include private company branding.
+### Company Version Note
+This is the ADLAS Academy branded company version.
 
 ## العربية
 
 ### نبذة
-نظام إدارة ضيوف المعرض هو مشروع معرض أعمال عام مبني باستخدام ASP.NET Core MVC وفق بنية طبقية واضحة. يوفر واجهة حديثة ثنائية اللغة لإدارة الضيوف مع دعم كامل للعربية والإنجليزية واتجاهي RTL/LTR.
+نظام إدارة ضيوف أكاديمية أدلس هو النسخة المخصصة بهوية أكاديمية أدلس من مشروع إدارة ضيوف المعارض. يوفر واجهة حديثة ثنائية اللغة لإدارة الضيوف مع دعم العربية والإنجليزية واتجاهي RTL/LTR.
 
 ### المزايا الرئيسية
 - تسجيل دخول آمن باستخدام ASP.NET Core Identity
@@ -114,9 +113,8 @@ This is a portfolio/demo version and does not include private company branding.
 - `ExhibitionGuestManager.Infrastructure`
 - `ExhibitionGuestManager.UI`
 
-### بيانات الدخول التجريبية
-- البريد الإلكتروني: `admin@example.com`
-- كلمة المرور: `Admin@12345`
+### بيانات الدخول
+بيانات الدخول مخصصة للاستخدام الداخلي المصرح به. لا تنشر بيانات دخول مشتركة في مواد تسليم العميل.
 
 ### طريقة التشغيل
 1. تثبيت .NET 8 SDK.
@@ -127,7 +125,7 @@ dotnet restore
 ```
 
 3. ضبط سلسلة الاتصال الخاصة بـ SQL Server في `appsettings.json` أو عبر user secrets.
-4. قبل تشغيل التطبيق، تأكد من أن قاعدة بيانات SQL Server المحددة في `appsettings.json` موجودة ويمكن للمستخدم الحالي الوصول إليها. هذه النسخة العامة لا تحتوي على EF Core migrations.
+4. قبل تشغيل التطبيق، تأكد من أن قاعدة بيانات SQL Server المحددة في `appsettings.json` موجودة ويمكن للمستخدم الحالي الوصول إليها. هذه النسخة لا تحتوي على EF Core migrations.
 5. بناء الحل:
 
 ```bash
@@ -161,5 +159,5 @@ dotnet run --project src/ExhibitionGuestManager.UI/ExhibitionGuestManager.UI.csp
 - لا يوجد CQRS
 - لا يوجد MediatR
 
-### ملاحظة خاصة بالنسخة العامة
-هذه نسخة للعرض في معرض الأعمال ولا تحتوي على أي هوية أو علامات تجارية خاصة بأي شركة.
+### ملاحظة نسخة الشركة
+هذه هي النسخة المخصصة بهوية أكاديمية أدلس.

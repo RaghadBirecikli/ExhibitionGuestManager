@@ -1,17 +1,24 @@
 using System.ComponentModel.DataAnnotations;
-using ExhibitionGuestManager.Domain.Enums;
 
 namespace ExhibitionGuestManager.UI.ViewModels.Customers;
 
 public class CustomerCreateViewModel
 {
-    [Required]
-    [MaxLength(200)]
-    [Display(Name = "FullName")]
-    public string FullName { get; set; } = string.Empty;
+    [Required(ErrorMessage = "TitleRequired")]
+    [Display(Name = "Title")]
+    public string Title { get; set; } = string.Empty;
 
-    [Required]
-    [MaxLength(50)]
+    [Required(ErrorMessage = "NameRequired")]
+    [MaxLength(200)]
+    [Display(Name = "Name")]
+    public string Name { get; set; } = string.Empty;
+
+    [MaxLength(150)]
+    [Display(Name = "Position")]
+    public string? Position { get; set; }
+
+    [Required(ErrorMessage = "MobileNumberRequired")]
+    [RegularExpression(@"^\d{10}$", ErrorMessage = "MobileNumberMustBe10Digits")]
     [Display(Name = "MobileNumber")]
     public string MobileNumber { get; set; } = string.Empty;
 
@@ -20,21 +27,15 @@ public class CustomerCreateViewModel
     public string? City { get; set; }
 
     [MaxLength(200)]
-    [Display(Name = "Company")]
-    public string? CompanyName { get; set; }
+    [Display(Name = "OrganizationName")]
+    public string? OrganizationName { get; set; }
 
-    [MaxLength(150)]
-    [Display(Name = "Department")]
-    public string? Department { get; set; }
+    [EmailAddress(ErrorMessage = "EmailInvalid")]
+    [MaxLength(256)]
+    [Display(Name = "Email")]
+    public string? Email { get; set; }
 
-    [Display(Name = "Status")]
-    public CustomerStatus Status { get; set; } = CustomerStatus.Active;
-
-    [MaxLength(1000)]
-    [Display(Name = "GeneralNotes")]
-    public string? GeneralNotes { get; set; }
-
-    [MaxLength(1000)]
-    [Display(Name = "InternalNotes")]
-    public string? InternalNotes { get; set; }
+    [MinLength(1, ErrorMessage = "InterestRequired")]
+    [Display(Name = "Interests")]
+    public List<string> Interests { get; set; } = [];
 }

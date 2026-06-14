@@ -3,6 +3,23 @@
 
 @{
     ViewData["Title"] = L["EditCustomer"];
+    var titleOptions = new[] { "MrMrs", "Teacher", "Doctor", "Other" };
+    var interestOptions = new[]
+    {
+        "CurriculumBooks",
+        "TrainingKits",
+        "RoboticsLab",
+        "ProfessionalExamPreparationCourses",
+        "EnglishExamPreparationCourses",
+        "BilingersBilingualKindergartenProgram",
+        "TeacherTrainingWorkshops",
+        "AfterSchoolMentalArithmeticProgram",
+        "AfterSchoolProgramsPackage",
+        "ArticRobots",
+        "ACEBOTTRobots",
+        "HelloCodeProgrammingProgram",
+        "OtherInterest"
+    };
 }
 
 <div class="d-flex align-items-center justify-content-between gap-3 mb-4">
@@ -18,15 +35,37 @@
         <input asp-for="Id" type="hidden" />
         <div asp-validation-summary="ModelOnly" class="alert alert-danger app-alert" role="alert"></div>
 
+        <div class="col-12">
+            <h2 class="h5 fw-semibold mb-0">@L["BasicInformation"]</h2>
+        </div>
+
         <div class="col-md-6">
-            <label asp-for="FullName" class="form-label"></label>
-            <input asp-for="FullName" class="form-control" />
-            <span asp-validation-for="FullName" class="text-danger small"></span>
+            <label asp-for="Title" class="form-label"></label>
+            <select asp-for="Title" class="form-select">
+                <option value="">@L["Select"]</option>
+                @foreach (var title in titleOptions)
+                {
+                    <option value="@title">@L[title]</option>
+                }
+            </select>
+            <span asp-validation-for="Title" class="text-danger small"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="Name" class="form-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger small"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="Position" class="form-label"></label>
+            <input asp-for="Position" class="form-control" />
+            <span asp-validation-for="Position" class="text-danger small"></span>
         </div>
 
         <div class="col-md-6">
             <label asp-for="MobileNumber" class="form-label"></label>
-            <input asp-for="MobileNumber" class="form-control" />
+            <input asp-for="MobileNumber" class="form-control" inputmode="numeric" maxlength="10" pattern="[0-9]{10}" autocomplete="tel" />
             <span asp-validation-for="MobileNumber" class="text-danger small"></span>
         </div>
 
@@ -37,36 +76,30 @@
         </div>
 
         <div class="col-md-6">
-            <label asp-for="CompanyName" class="form-label"></label>
-            <input asp-for="CompanyName" class="form-control" />
-            <span asp-validation-for="CompanyName" class="text-danger small"></span>
+            <label asp-for="OrganizationName" class="form-label"></label>
+            <input asp-for="OrganizationName" class="form-control" />
+            <span asp-validation-for="OrganizationName" class="text-danger small"></span>
         </div>
 
         <div class="col-md-6">
-            <label asp-for="Department" class="form-label"></label>
-            <input asp-for="Department" class="form-control" />
-            <span asp-validation-for="Department" class="text-danger small"></span>
+            <label asp-for="Email" class="form-label"></label>
+            <input asp-for="Email" type="email" class="form-control" autocomplete="email" />
+            <span asp-validation-for="Email" class="text-danger small"></span>
         </div>
 
-        <div class="col-md-6">
-            <label asp-for="Status" class="form-label"></label>
-            <select asp-for="Status" class="form-select">
-                <option value="@CustomerStatus.Active">@L["Active"]</option>
-                <option value="@CustomerStatus.Inactive">@L["Inactive"]</option>
-            </select>
-            <span asp-validation-for="Status" class="text-danger small"></span>
-        </div>
-
-        <div class="col-md-6">
-            <label asp-for="GeneralNotes" class="form-label"></label>
-            <textarea asp-for="GeneralNotes" class="form-control" rows="5"></textarea>
-            <span asp-validation-for="GeneralNotes" class="text-danger small"></span>
-        </div>
-
-        <div class="col-md-6">
-            <label asp-for="InternalNotes" class="form-label"></label>
-            <textarea asp-for="InternalNotes" class="form-control" rows="5"></textarea>
-            <span asp-validation-for="InternalNotes" class="text-danger small"></span>
+        <div class="col-12">
+            <h2 class="h5 fw-semibold mb-2">@L["Interests"]</h2>
+            <div class="interests-grid">
+                @foreach (var interest in interestOptions)
+                {
+                    var id = $"interest-{interest}";
+                    <div class="form-check interest-option">
+                        <input class="form-check-input" type="checkbox" id="@id" name="Interests" value="@interest" checked="@Model.Interests.Contains(interest)" />
+                        <label class="form-check-label" for="@id">@L[interest]</label>
+                    </div>
+                }
+            </div>
+            <span asp-validation-for="Interests" class="text-danger small"></span>
         </div>
 
         <div class="col-12 d-flex flex-wrap gap-2">

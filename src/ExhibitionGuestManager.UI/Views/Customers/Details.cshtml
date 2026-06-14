@@ -3,12 +3,11 @@
 
 @{
     ViewData["Title"] = L["CustomerDetails"];
-    var statusText = Model.Status == CustomerStatus.Active ? L["Active"] : L["Inactive"];
 }
 
 <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-4">
     <div>
-        <h1 class="h3 fw-semibold mb-1">@Model.FullName</h1>
+        <h1 class="h3 fw-semibold mb-1">@Model.Name</h1>
         <p class="text-secondary mb-0">@L["CustomerDetails"]</p>
     </div>
     <div class="d-flex flex-wrap gap-2">
@@ -20,8 +19,16 @@
 <section class="content-panel">
     <div class="row g-4 details-grid">
         <div class="col-md-6">
-            <div class="detail-label">@L["FullName"]</div>
-            <div class="detail-value">@Model.FullName</div>
+            <div class="detail-label">@L["Title"]</div>
+            <div class="detail-value">@(string.IsNullOrWhiteSpace(Model.Title) ? "-" : L[Model.Title])</div>
+        </div>
+        <div class="col-md-6">
+            <div class="detail-label">@L["Name"]</div>
+            <div class="detail-value">@Model.Name</div>
+        </div>
+        <div class="col-md-6">
+            <div class="detail-label">@L["Position"]</div>
+            <div class="detail-value">@(Model.Position ?? "-")</div>
         </div>
         <div class="col-md-6">
             <div class="detail-label">@L["MobileNumber"]</div>
@@ -32,26 +39,28 @@
             <div class="detail-value">@(Model.City ?? "-")</div>
         </div>
         <div class="col-md-6">
-            <div class="detail-label">@L["Company"]</div>
-            <div class="detail-value">@(Model.CompanyName ?? "-")</div>
+            <div class="detail-label">@L["OrganizationName"]</div>
+            <div class="detail-value">@(Model.OrganizationName ?? "-")</div>
         </div>
         <div class="col-md-6">
-            <div class="detail-label">@L["Department"]</div>
-            <div class="detail-value">@(Model.Department ?? "-")</div>
+            <div class="detail-label">@L["Email"]</div>
+            <div class="detail-value">@(Model.Email ?? "-")</div>
         </div>
-        <div class="col-md-6">
-            <div class="detail-label">@L["Status"]</div>
-            <span class="badge rounded-pill detail-badge @(Model.Status == CustomerStatus.Active ? "text-bg-success" : "text-bg-secondary")">
-                @statusText
-            </span>
-        </div>
-        <div class="col-md-6">
-            <div class="detail-label">@L["GeneralNotes"]</div>
-            <div class="detail-value pre-wrap">@(Model.GeneralNotes ?? "-")</div>
-        </div>
-        <div class="col-md-6">
-            <div class="detail-label">@L["InternalNotes"]</div>
-            <div class="detail-value pre-wrap">@(Model.InternalNotes ?? "-")</div>
+        <div class="col-12">
+            <div class="detail-label">@L["Interests"]</div>
+            @if (Model.Interests.Count == 0)
+            {
+                <div class="detail-value">-</div>
+            }
+            else
+            {
+                <div class="interest-badges">
+                    @foreach (var interest in Model.Interests)
+                    {
+                        <span class="badge rounded-pill text-bg-light interest-badge">@L[interest]</span>
+                    }
+                </div>
+            }
         </div>
         <div class="col-md-3">
             <div class="detail-label">@L["CreatedAt"]</div>

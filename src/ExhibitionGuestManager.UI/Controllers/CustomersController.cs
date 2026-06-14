@@ -171,13 +171,14 @@ public class CustomersController : Controller
         return new CustomerListItemViewModel
         {
             Id = dto.Id,
-            FullName = dto.FullName,
+            Title = dto.Title,
+            Name = dto.Name,
+            Position = dto.Position,
             MobileNumber = dto.MobileNumber,
             City = dto.City,
-            CompanyName = dto.CompanyName,
-            Department = dto.Department,
-            Status = dto.Status,
-            CreatedAt = dto.CreatedAt
+            OrganizationName = dto.OrganizationName,
+            Email = dto.Email,
+            Interests = dto.Interests
         };
     }
 
@@ -186,14 +187,14 @@ public class CustomersController : Controller
         return new CustomerDetailsViewModel
         {
             Id = dto.Id,
-            FullName = dto.FullName,
+            Title = dto.Title,
+            Name = dto.Name,
+            Position = dto.Position,
             MobileNumber = dto.MobileNumber,
             City = dto.City,
-            CompanyName = dto.CompanyName,
-            Department = dto.Department,
-            Status = dto.Status,
-            GeneralNotes = dto.GeneralNotes,
-            InternalNotes = dto.InternalNotes,
+            OrganizationName = dto.OrganizationName,
+            Email = dto.Email,
+            Interests = dto.Interests,
             CreatedAt = dto.CreatedAt,
             CreatedBy = dto.CreatedBy,
             UpdatedAt = dto.UpdatedAt,
@@ -206,14 +207,14 @@ public class CustomersController : Controller
         return new CustomerEditViewModel
         {
             Id = dto.Id,
-            FullName = dto.FullName,
+            Title = dto.Title,
+            Name = dto.Name,
+            Position = dto.Position,
             MobileNumber = dto.MobileNumber,
             City = dto.City,
-            CompanyName = dto.CompanyName,
-            Department = dto.Department,
-            Status = dto.Status,
-            GeneralNotes = dto.GeneralNotes,
-            InternalNotes = dto.InternalNotes
+            OrganizationName = dto.OrganizationName,
+            Email = dto.Email,
+            Interests = dto.Interests.ToList()
         };
     }
 
@@ -221,14 +222,14 @@ public class CustomersController : Controller
     {
         return new CreateCustomerDto
         {
-            FullName = model.FullName,
+            Title = model.Title,
+            Name = model.Name,
+            Position = model.Position,
             MobileNumber = model.MobileNumber,
             City = model.City,
-            CompanyName = model.CompanyName,
-            Department = model.Department,
-            Status = model.Status,
-            GeneralNotes = model.GeneralNotes,
-            InternalNotes = model.InternalNotes
+            OrganizationName = model.OrganizationName,
+            Email = model.Email,
+            Interests = model.Interests
         };
     }
 
@@ -237,14 +238,14 @@ public class CustomersController : Controller
         return new UpdateCustomerDto
         {
             Id = model.Id,
-            FullName = model.FullName,
+            Title = model.Title,
+            Name = model.Name,
+            Position = model.Position,
             MobileNumber = model.MobileNumber,
             City = model.City,
-            CompanyName = model.CompanyName,
-            Department = model.Department,
-            Status = model.Status,
-            GeneralNotes = model.GeneralNotes,
-            InternalNotes = model.InternalNotes
+            OrganizationName = model.OrganizationName,
+            Email = model.Email,
+            Interests = model.Interests
         };
     }
 
@@ -254,9 +255,8 @@ public class CustomersController : Controller
         {
             SearchTerm = filter.SearchTerm,
             City = filter.City,
-            CompanyName = filter.CompanyName,
-            Department = filter.Department,
-            Status = filter.Status,
+            OrganizationName = filter.OrganizationName,
+            Position = filter.Position,
             FromDate = filter.FromDate,
             ToDate = filter.ToDate,
             PageNumber = filter.PageNumber,

@@ -1,5 +1,3 @@
-using ExhibitionGuestManager.Domain.Enums;
-
 namespace ExhibitionGuestManager.UI.ViewModels.Customers;
 
 public class CustomerFilterViewModel
@@ -8,11 +6,9 @@ public class CustomerFilterViewModel
 
     public string? City { get; set; }
 
-    public string? CompanyName { get; set; }
+    public string? OrganizationName { get; set; }
 
-    public string? Department { get; set; }
-
-    public CustomerStatus? Status { get; set; }
+    public string? Position { get; set; }
 
     public DateTime? FromDate { get; set; }
 

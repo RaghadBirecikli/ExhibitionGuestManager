@@ -11,10 +11,9 @@
         <div class="card-body p-4 p-md-5">
             <div class="auth-header text-center mb-4 mb-md-5">
                 <div class="auth-logo-wrap mx-auto mb-3">
-                    <img src="~/images/logo.png" alt="@L["AppName"]" class="auth-logo" onerror="this.style.display='none'; this.parentElement.classList.add('logo-missing');" />
+                    <img src="~/images/adlas-logo.png" asp-append-version="true" alt="@L["AppName"]" class="auth-logo" onerror="this.style.display='none'; this.parentElement.classList.add('logo-missing');" />
                 </div>
-                <span class="auth-kicker d-inline-block mb-2">EGM</span>
-                <h1 class="h3 fw-semibold mb-2">@L["LoginTitle"]</h1>
+                <h1 class="h3 fw-semibold mb-2">@L["AppName"]</h1>
                 <p class="auth-subtitle mb-0">@L["LoginSubtitle"]</p>
             </div>
 
@@ -43,9 +42,6 @@
 
                 <button type="submit" class="btn btn-primary btn-lg w-100 auth-submit">@L["SignIn"]</button>
 
-                <p class="small text-secondary text-center mt-4 mb-0 auth-demo">
-                    @L["DemoCredentials"]: <span class="fw-medium">admin@example.com</span> / <span class="fw-medium">Admin@12345</span>
-                </p>
             </form>
         </div>
     </div>
